@@ -14,6 +14,7 @@ console.log("Platform: " + os.platform());
 
 /* const txt = readFileSync('./mytext.txt', 'utf-8')
 console.log(txt) */
+
 readFile('./mytext.txt', 'utf-8',(err,txt)=>{
     if(err){
         console.log("error",err)
