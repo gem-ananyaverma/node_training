@@ -1,4 +1,4 @@
-const express = require('express')
+//const express = require('express')
 const os = require('os');
 const {readFile, readFileSync} = require('fs')
 const http = require('http');
@@ -8,8 +8,10 @@ const url = require('url');
 
 
 const buf = Buffer.from('user');
-console.log(buf);
+console.log("buffer: ",buf);
 
+
+console.log("Home Directory: " + os.homedir());
 console.log("Platform: " + os.platform());
 
 /* const txt = readFileSync('./mytext.txt', 'utf-8')
@@ -20,22 +22,22 @@ readFile('./mytext.txt', 'utf-8',(err,txt)=>{
         console.log("error",err)
     }
     else{
-        console.log(txt)
+        console.log("text in mytext.txt: ",txt)
     }
     
 })
 
 const my_add = 'http://localhost:3001/default.htm?month=sept&Project=node';
 const qrr = url.parse(my_add, true);
-console.log(qrr.search);
-console.log(qrr.host);
-console.log(qrr.pathname); 
+console.log("search: ",qrr.search);
+console.log("hostname: ", qrr.host);
+console.log("pathname:", qrr.pathname); 
 const data = qrr.query;
-console.log(data)
+console.log("data: ", data)
 
 const txt = 'hi %s i am %s my age is %d';
 const res = util.format(txt, 'xyz','abc',21 );
-console.log(res);
+console.log("response of util: ",res);
 
 http.createServer(function (req, res) {
     res.write('hi there!');
@@ -43,4 +45,4 @@ http.createServer(function (req, res) {
   }).listen(3001)
 
 var filename = path.dirname('./mytext.txt');
-  console.log(filename);
+  console.log("filename: ",filename);
