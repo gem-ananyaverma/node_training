@@ -3,25 +3,31 @@
 
     res.send("");
 } */
-
 const data =[{
-    email:"nxubbqx", 
+    email:"nxubxhbu",
     password:"1342"
+}, {
+    email:"abc",
+    password:"1276"
+},{
+    email:"xyz",
+    password:"1222"
 }];
 
-const RegisterDataPost = function(req,res){
-    console.log("RegisterData post request")
-    body=res.body;
-    body=[{
-        email:"nxubbqx",
-        password:"1342"
-    }]
-    if(data.email===req.body.email){
-        data.push(body)
-        res.send("user already exists");
 
+
+const RegisterDataPost = function(req,res){
+    
+    console.log("RegisterData post request")
+    body=req.body;
+    const emailExists = data.some(user => user.email === body.email);
+    if(!emailExists) {
+        data.push(body)
+        console.log(data);
+        res.send("user registered successfully")
+        
     }
-    res.send("user registered")
+    res.send("user already exists")
 }
 
 
