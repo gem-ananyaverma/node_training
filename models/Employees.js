@@ -12,6 +12,10 @@ let schema = mongoose.Schema({
     team: {
         type: String,
         required: true
+    },
+    empId: {
+        type: Number(40),
+        required: true
     }
 });
 

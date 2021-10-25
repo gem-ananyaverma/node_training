@@ -20,7 +20,8 @@ app.get("/insert", (req, res) => {
     let emp = new Employee({
         name: "abc",
         age: 32,
-        team: "xyz"
+        team: "xyz",
+        empId:125673876355772
     })
 
     emp.save((err, data) => {
