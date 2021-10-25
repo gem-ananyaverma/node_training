@@ -1,48 +1,172 @@
-//const express = require('express')
-const os = require('os');
-const {readFile, readFileSync} = require('fs')
-const http = require('http');
-const path = require('path');
-const util = require('util');
-const url = require('url');
+// const getMessage = (callback) => {
+//     setTimeout(() => {
+//         callback("helloworld");
+//         console.log()
+//     },0);
+
+// }
+
+// const printMsg = (msg) => {
+//     console.log(msg);
+// }
+
+// getMessage(printMsg);
 
 
-const buf = Buffer.from('user');
-console.log("buffer: ",buf);
+// function getUserName(){
+//     //getAge
+//     return new Promise(
+//         (resolve, reject) => {
+//             resolve({ name: "azhar" });
+//         }
+//     )
+//     // callback({ name: "azhar" }, getDepartment);
+// }
 
+// function getAge(data){
+//     //getdepartment
+//       return new Promise((resolve, reject) => {
+//         resolve({...data, age: '25'});
+//       });
+// }
+// function getDepartment(data){
+//     //getEmployeecode
+//      return new Promise((resolve, reject) => {
+//        resolve({ ...data, department: "app dev" });
+//      });
+// }
+// function getEmployeeCode(data){
+//     //printdata
+//     return new Promise((resolve, reject) => {
+//       resolve({ ...data, employeeCode: "550" });
+//     });
+// }
+// function printData(data){
+//     console.log(data);
+// }
 
-console.log("Home Directory: " + os.homedir());
-console.log("Platform: " + os.platform());
+// getUserName()
+//   .then(getAge)
+//   .then(getDepartment)
+//   .then(getEmployeeCode)
+//   .then(printData);
 
-/* const txt = readFileSync('./mytext.txt', 'utf-8')
-console.log(txt) */
-
-readFile('./mytext.txt', 'utf-8',(err,txt)=>{
-    if(err){
-        console.log("error",err)
-    }
-    else{
-        console.log("text in mytext.txt: ",txt)
-    }
-    
-})
-
-const my_add = 'http://localhost:3001/default.htm?month=sept&Project=node';
-const qrr = url.parse(my_add, true);
-console.log("search: ",qrr.search);
-console.log("hostname: ", qrr.host);
-console.log("pathname:", qrr.pathname); 
-const data = qrr.query;
-console.log("data: ", data)
-
-const txt = 'hi %s i am %s my age is %d';
-const res = util.format(txt, 'xyz','abc',21 );
-console.log("response of util: ",res);
-
-http.createServer(function (req, res) {
-    res.write('hi there!');
-    res.end(); 
-  }).listen(3001)
-
-var filename = path.dirname('./mytext.txt');
-  console.log("filename: ",filename);
+function getMessage() {
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
+          console.log("Hello Universe")//2
+        resolve("hello world");
+      }, 1000);
+    });
+  }
+  
+  async function printMsg() {
+    console.log("Res1"); //3
+  
+  getMessage().then(
+      data => {
+          console.log("Res", data);
+      }
+  )
+    console.log("Res2"); //3
+    console.log("Res3");
+  }
+  
+  function sample() {
+    printMsg();
+    //showMsg();
+    console.log("Hello world 2");//1
+  }
+  
+  sample();
+  
+  
+  
+  
+  // function promiseExp () {
+  //     return new Promise(
+  //         (resolve, reject) => {
+  //             resolve(true);
+  //         }
+  //     )
+  // }
+  
+  // promiseExp()
+  // .then((data) => {
+  //     console.log("Data", data);
+  // })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  // function getUsername(callback){
+  //     //getAge
+  //     callback({name: "azhar"}, getDepartment);
+  // }
+  
+  // function getAge(data, callback){
+  
+  //     //
+  //     data = {...data, age: "25"};
+  //     callback(data, getEmployeeCode);
+  
+  // }
+  
+  // function getDepartment(data, callback){
+  //     data = {...data, department: "app dev"};
+  //     callback(data, getEmployeeCode);
+  // }
+  
+  // function getEmployeeCode(data, callback){
+  //     data = {...data, employeeCode: '550'};
+  //     callback(data, printData);
+  // }
+  
+  // function printData(data){
+  //     console.log(data)
+  // }
+  
+  // getUsername(getAge);
+  
+  // function getUsername(){
+  //     return new Promise(
+  //         (resolve, reject) => {
+  //             resolve ({ name: "azhar" });
+  //         }
+  //     )
+  //     //getAge
+  // }
+  
+  // function getAge(data){
+  //      return new Promise((resolve, reject) => {
+  //        resolve({ ...data, age: "25" });
+  //      });
+  // }
+  
+  // function getDepartment(data){
+  //     return new Promise((resolve, reject) => {
+  //       resolve({...data, department: "app dev"});
+  //     });
+  // }
+  
+  // function getEmployeeCode(data){
+  //       return new Promise((resolve, reject) => {
+  //         resolve({...data, employeeCode: '550'});
+  //       });
+  // }
+  
+  // function printData(data){
+  //     console.log(data)
+  // }
+  
+  // getUsername()
+  //   .then(getAge)
+  //   .then(getDepartment)
+  //   .then(getEmployeeCode)
+  //   .then(printData);
+  
