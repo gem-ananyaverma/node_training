@@ -14,7 +14,7 @@ let schema = mongoose.Schema({
         required: true
     },
     empId: {
-        type: Number(40),
+        type: Number,
         required: true
     }
 });
